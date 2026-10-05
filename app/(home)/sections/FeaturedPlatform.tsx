@@ -43,7 +43,7 @@ export default function FeaturedPlatform() {
       currentFrame = -1; // force a redraw at the new size
     };
 
-    // Draw a frame with "cover" fit. Only redraws when the frame changes.
+    // Draw a frame with clean 1:1 aspect fit and clearRect.
     const render = () => {
       const index = Math.round(state.frame);
       if (index === currentFrame) return;
@@ -60,6 +60,7 @@ export default function FeaturedPlatform() {
       const dx = (canvas.width - dw) / 2;
       const dy = (canvas.height - dh) / 2;
 
+      context.clearRect(0, 0, canvas.width, canvas.height);
       context.drawImage(img, dx, dy, dw, dh);
       currentFrame = index;
     };
@@ -90,35 +91,50 @@ export default function FeaturedPlatform() {
         return;
       }
 
-      // Scrub the frame index across a long pinned scroll distance.
-      gsap.to(state, {
-        frame: FRAME_COUNT - 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=500%",
-          scrub: 1,
-          pin: stageRef.current,
-          anticipatePin: 1,
-        },
-      });
+      const mm = gsap.matchMedia();
 
-      // While the caption is visible the image stays dimmed (with a scrim)
-      // so the text is legible. As the caption eases out, the image rises to
-      // full opacity and the scrim clears.
-      gsap
-        .timeline({
+      // Desktop: Full-bleed pinned scrollytelling
+      mm.add("(min-width: 769px)", () => {
+        gsap.to(state, {
+          frame: FRAME_COUNT - 1,
+          ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top top",
-            end: "+=30%",
-            scrub: true,
+            end: "+=500%",
+            scrub: 1,
+            pin: stageRef.current,
+            anticipatePin: 1,
           },
-        })
-        .to(introRef.current, { autoAlpha: 0, y: -20, ease: "none" }, 0)
-        .to(canvasRef.current, { opacity: 1, ease: "none" }, 0)
-        .to(scrimRef.current, { autoAlpha: 0, ease: "none" }, 0);
+        });
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "+=30%",
+              scrub: true,
+            },
+          })
+          .to(introRef.current, { autoAlpha: 0, y: -20, ease: "none" }, 0)
+          .to(canvasRef.current, { opacity: 1, ease: "none" }, 0)
+          .to(scrimRef.current, { autoAlpha: 0, ease: "none" }, 0);
+      });
+
+      // Mobile: Compact section with title above video and smooth scrubbing
+      mm.add("(max-width: 768px)", () => {
+        gsap.to(state, {
+          frame: FRAME_COUNT - 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 1,
+          },
+        });
+      });
     }, sectionRef);
 
     // Decouple drawing from scroll: the ticker draws the latest frame once
@@ -140,15 +156,17 @@ export default function FeaturedPlatform() {
       aria-label="Featured Platform"
     >
       <div ref={stageRef} className={styles.stage}>
-        <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
-        <div ref={scrimRef} className={styles.scrim} aria-hidden="true" />
-
         <div ref={introRef} className={styles.intro}>
           <span className={styles.eyebrow}>FEATURED PLATFORM</span>
           <h2 className={styles.title}>A Glimpse of What We Build</h2>
           <p className={styles.subline}>
             The details are classified, the capability is not.
           </p>
+        </div>
+
+        <div className={styles.canvasWrapper}>
+          <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
+          <div ref={scrimRef} className={styles.scrim} aria-hidden="true" />
         </div>
       </div>
     </section>
