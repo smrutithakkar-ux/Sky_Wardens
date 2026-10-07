@@ -28,11 +28,11 @@ const boldonse = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sky Wardens Private Limited | Aerospace, Defence, Advanced Systems & Petrochemical",
+    default: "Sky Wardens Private Limited | Aerospace & Defence", // | Advanced Systems & Petrochemical
     template: "%s | Sky Wardens",
   },
   description:
-    "Strategic industrial capability across aerospace, defence, advanced systems, and petrochemical sectors.",
+    "Strategic industrial capability across aerospace and defence sectors.", // across aerospace, defence, advanced systems, and petrochemical sectors.
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

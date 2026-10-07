@@ -31,8 +31,8 @@ export default function Footer() {
             </Link>
 
             <p className={styles.brandDescription}>
-              Building strategic industrial capability across aerospace, defence,
-              advanced systems, and petrochemical sectors — engineered for the
+              Building strategic industrial capability across aerospace and defence
+              {/* , advanced systems, and petrochemical */} sectors — engineered for the
               missions that matter.
             </p>
 

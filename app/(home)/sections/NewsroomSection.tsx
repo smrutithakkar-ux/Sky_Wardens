@@ -46,6 +46,7 @@ const newsItems: NewsItem[] = [
     href: "/capabilities",
     gridClass: styles.card2,
   },
+  /*
   {
     id: "news-systems",
     sector: "Advanced Systems",
@@ -70,6 +71,7 @@ const newsItems: NewsItem[] = [
     href: "/capabilities",
     gridClass: styles.card4,
   },
+  */
   {
     id: "news-strategic",
     sector: "Strategic Initiative",

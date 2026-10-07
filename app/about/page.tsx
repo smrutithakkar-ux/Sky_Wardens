@@ -9,7 +9,7 @@ import ProductsSection from "./sections/ProductsSection";
 export const metadata: Metadata = {
   title: "About Us | Sky Wardens",
   description:
-    "Engineering strategic sovereign capability across aerospace, defence, advanced systems, and petrochemical sectors.",
+    "Engineering strategic sovereign capability across aerospace and defence sectors.", // across aerospace, defence, advanced systems, and petrochemical sectors.
 };
 
 export default function AboutPage() {

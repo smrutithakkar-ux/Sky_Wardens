@@ -103,14 +103,14 @@ export default function AboutHero() {
                 /
               </span>
               <span data-tagline>Defence</span>
-              <span className={styles.slash} aria-hidden="true" data-tagline>
+              {/* <span className={styles.slash} aria-hidden="true" data-tagline>
                 /
               </span>
               <span data-tagline>Advanced Systems</span>
               <span className={styles.slash} aria-hidden="true" data-tagline>
                 /
               </span>
-              <span data-tagline>Petrochemical</span>
+              <span data-tagline>Petrochemical</span> */}
             </div>
             <h1 className={styles.heroTitle} data-hero-title>
               ABOUT US

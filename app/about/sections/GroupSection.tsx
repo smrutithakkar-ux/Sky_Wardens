@@ -51,6 +51,7 @@ const sectors: Sector[] = [
     ],
     href: "/capabilities",
   },
+  /*
   {
     id: "advanced-systems",
     number: "Sector 03",
@@ -85,6 +86,7 @@ const sectors: Sector[] = [
     ],
     href: "/capabilities",
   },
+  */
 ];
 
 export default function GroupSection() {
@@ -103,7 +105,7 @@ export default function GroupSection() {
             GROUP OF COMPANIES
           </AnimatedTitle>
           <p className={styles.subHeading}>
-            Four tightly integrated industrial pillars operating in unison to
+            {/* Four */} Tightly integrated industrial pillars operating in unison to
             deliver complete sovereign capability from raw material synthesis to
             tactical frontline deployment.
           </p>

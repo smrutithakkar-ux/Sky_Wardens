@@ -27,6 +27,7 @@ const valuesList = [
     icon: "/images/our-values/quality-first.svg",
     positionClass: styles.topRightCard,
   },
+  /*
   {
     id: "03",
     index: "/03",
@@ -45,6 +46,7 @@ const valuesList = [
     icon: "/images/our-values/trust.svg",
     positionClass: styles.bottomRightCard,
   },
+  */
 ];
 
 export default function OurValuesHub() {
@@ -313,7 +315,7 @@ export default function OurValuesHub() {
                 className={styles.circuitPath}
                 d="M1046.7 1H945.445L874.724 105.121"
               />
-              <path
+              {/* <path
                 ref={line3Ref}
                 className={styles.circuitPath}
                 d="M444 531.57H538.662C577.997 462.748 578.513 463.554 617.848 394.732"
@@ -322,7 +324,7 @@ export default function OurValuesHub() {
                 ref={line4Ref}
                 className={styles.circuitPath}
                 d="M1046.7 531.219H945.421L858.527 402.941"
-              />
+              /> */}
             </g>
           </svg>
 

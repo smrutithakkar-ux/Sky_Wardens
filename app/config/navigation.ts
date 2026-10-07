@@ -33,8 +33,8 @@ export const pageLinks: NavLink[] = [
     children: [
       { label: "Aerospace", href: "/products/aerospace" },
       { label: "Defence", href: "/products/defence" },
-      { label: "Advanced Systems", href: "/products/advanced-systems" },
-      { label: "Petrochemical", href: "/products/petrochemical" },
+      // { label: "Advanced Systems", href: "/products/advanced-systems" },
+      // { label: "Petrochemical", href: "/products/petrochemical" },
     ],
   },
   { label: "Affiliations", href: "/affiliations" },

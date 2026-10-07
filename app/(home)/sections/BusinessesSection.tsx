@@ -47,6 +47,7 @@ const businesses: BusinessItem[] = [
     logoAlt: "Defence Logo",
     href: "/capabilities",
   },
+  /*
   {
     id: "advanced-systems",
     sector: "Sector 3",
@@ -71,6 +72,7 @@ const businesses: BusinessItem[] = [
     logoAlt: "Petrochemical Logo",
     href: "/capabilities",
   },
+  */
 ];
 
 export default function BusinessesSection() {

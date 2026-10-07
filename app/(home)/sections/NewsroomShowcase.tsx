@@ -41,6 +41,7 @@ const newsItems: NewsItem[] = [
     imageAlt: "Specialist engineer analyzing tactical defence command telemetry",
     href: "/capabilities",
   },
+  /*
   {
     id: "news-systems",
     sector: "Advanced Systems",
@@ -63,6 +64,7 @@ const newsItems: NewsItem[] = [
     imageAlt: "Advanced petrochemical processing infrastructure at twilight",
     href: "/capabilities",
   },
+  */
 ];
 
 export default function NewsroomShowcase() {

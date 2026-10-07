@@ -17,7 +17,7 @@ const faqs: FaqItem[] = [
     id: "sectors",
     question: "What sectors does Sky Wardens\noperate in?",
     answer:
-      "Sky Wardens operates across aerospace, defence, advanced systems, and petrochemical sectors.",
+      "Sky Wardens operates across aerospace and defence sectors.", // across aerospace, defence, advanced systems, and petrochemical sectors.
   },
   {
     id: "partners",

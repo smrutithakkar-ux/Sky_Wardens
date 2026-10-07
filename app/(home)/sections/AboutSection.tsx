@@ -11,8 +11,8 @@ const capabilities = [
   {
     id: "sectors",
     label: "Sectors",
-    title: "04",
-    description: "Aerospace, Defence, Advanced Systems, and Petrochemical.",
+    title: "02", // "04",
+    description: "Aerospace and Defence.", // "Aerospace, Defence, Advanced Systems, and Petrochemical.",
     activeDots: 1,
     svg: (
       <svg

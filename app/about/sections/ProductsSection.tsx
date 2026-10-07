@@ -40,6 +40,7 @@ const productsList: Product[] = [
     image: "/images/Defence%20about1.jpeg",
     isCover: true,
   },
+  /*
   {
     id: "advanced-systems",
     tabLabel: "Advanced Systems",
@@ -62,6 +63,7 @@ const productsList: Product[] = [
     image: "/images/Petrochemical%20aboutus1.jpeg",
     isCover: true,
   },
+  */
   {
     id: "affiliations",
     tabLabel: "Affiliations",
