@@ -82,12 +82,6 @@ const partnerLogos: PartnerLogo[] = [
     height: 90,
   },
   {
-    name: "Vigyanlabs",
-    src: "/images/partners/cropped/vigyanlabs-light.png",
-    width: 175,
-    height: 50,
-  },
-  {
     name: "Sky Wardens",
     src: "/images/partners/cropped/sky-wardens-light.png",
     width: 140,

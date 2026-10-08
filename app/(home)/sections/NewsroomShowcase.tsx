@@ -28,7 +28,7 @@ const newsItems: NewsItem[] = [
     date: "March 2026",
     imageSrc: "/images/business-aerospace.jpg",
     imageAlt: "Stealth autonomous aerospace drone in testing hangar",
-    href: "/capabilities",
+    href: "/news/aerospace-highlights",
   },
   {
     id: "news-defence",
@@ -39,32 +39,8 @@ const newsItems: NewsItem[] = [
     date: "February 2026",
     imageSrc: "/images/business-systems.jpg",
     imageAlt: "Specialist engineer analyzing tactical defence command telemetry",
-    href: "/capabilities",
+    href: "/news/defence-systems",
   },
-  /*
-  {
-    id: "news-systems",
-    sector: "Advanced Systems",
-    headline: "Autonomous telemetry & cyber architecture for next-gen command",
-    excerpt:
-      "Real-time sensor fusion, encrypted communications, and edge-AI compute units engineered for zero-latency operations in contested theaters.",
-    date: "January 2026",
-    imageSrc: "/images/business-tactical.jpg",
-    imageAlt: "Tactical telemetry and orbital defence mission tablet",
-    href: "/capabilities",
-  },
-  {
-    id: "news-petrochem",
-    sector: "Petrochemical",
-    headline: "Industrial product lines and operational market developments",
-    excerpt:
-      "High-temperature metallurgy, zero-fail pressure equipment, and strategic processing solutions for national energy resilience.",
-    date: "December 2025",
-    imageSrc: "/images/business-energy.jpg",
-    imageAlt: "Advanced petrochemical processing infrastructure at twilight",
-    href: "/capabilities",
-  },
-  */
 ];
 
 export default function NewsroomShowcase() {
@@ -134,7 +110,7 @@ export default function NewsroomShowcase() {
               <span className={styles.titleLine}>NEWS &amp; INSIGHTS</span>
             </h2>
           </div>
-          <Link href="/newsroom" className={styles.viewAll}>
+          <Link href="/news" className={styles.viewAll}>
             <span>View all</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path
@@ -187,7 +163,7 @@ export default function NewsroomShowcase() {
                       </div>
                       <p className={styles.excerpt}>{item.excerpt}</p>
                       <Link href={item.href} className={styles.readLink}>
-                        <span>Read insight</span>
+                        <span>Read article</span>
                         <svg
                           width="12"
                           height="12"
@@ -211,7 +187,11 @@ export default function NewsroomShowcase() {
             })}
           </ul>
 
-          <div className={styles.media}>
+          <Link
+            href={activeItem.href}
+            className={styles.media}
+            aria-label={`Read article: ${activeItem.headline}`}
+          >
             {newsItems.map((item, index) => (
               <Image
                 key={item.id}
@@ -228,7 +208,7 @@ export default function NewsroomShowcase() {
             <span className={styles.mediaSector} aria-hidden="true">
               {activeItem.sector}
             </span>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

@@ -106,12 +106,6 @@ const partners: Partner[] = [
     name: "Throttle Aerospace Systems",
     logoSrc: "/images/partners/cropped/throttle-aerospace-systems.png",
   },
-  {
-    id: "vigyanlabs",
-    abbr: "VIGYANLABS",
-    name: "Vigyanlabs",
-    logoSrc: "/images/partners/cropped/vigyanlabs-light.png",
-  },
 ];
 
 export default function PartnersSection() {
