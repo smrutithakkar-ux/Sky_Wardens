@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductHeroBanner from "../components/ProductHeroBanner";
+import DefenceCatalogSection from "./sections/DefenceCatalogSection";
 
 export const metadata: Metadata = {
   title: "Defence | Products | Sky Wardens",
@@ -18,6 +19,8 @@ export default function DefenceProductPage() {
         objectPosition="center 30%"
         ariaLabel="Defence Products & Solutions Banner"
       />
+      <DefenceCatalogSection />
     </>
   );
 }
+

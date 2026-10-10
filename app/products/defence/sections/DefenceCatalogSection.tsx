@@ -3,18 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  aerospaceCategories,
-  AerospaceCategory,
-  ProductCardItem,
-} from "../data";
+import { defenceCategories, DefenceCategory, ProductCardItem } from "../data";
 import ProductDetailModal from "../../components/ProductDetailModal";
-import styles from "./AerospaceCatalogSection.module.css";
+import styles from "./DefenceCatalogSection.module.css";
 
-export default function AerospaceCatalogSection() {
-  const [activeId, setActiveId] = useState<string>(aerospaceCategories[0].id);
-  const [selectedProduct, setSelectedProduct] =
-    useState<ProductCardItem | null>(null);
+export default function DefenceCatalogSection() {
+  const [activeId, setActiveId] = useState<string>(defenceCategories[0].id);
+  const [selectedProduct, setSelectedProduct] = useState<ProductCardItem | null>(null);
 
   const handleCategoryClick = (
     id: string,
@@ -31,8 +26,7 @@ export default function AerospaceCatalogSection() {
   };
 
   const activeCategory =
-    aerospaceCategories.find((cat) => cat.id === activeId) ||
-    aerospaceCategories[0];
+    defenceCategories.find((cat) => cat.id === activeId) || defenceCategories[0];
 
   const totalProducts = activeCategory.products.length;
   const currentIndex = selectedProduct
@@ -53,7 +47,7 @@ export default function AerospaceCatalogSection() {
   };
 
   return (
-    <section className={styles.section} aria-label="Aerospace Products Catalog">
+    <section className={styles.section} aria-label="Defence Products Catalog">
       <div className={styles.inner}>
         {/* ========================================
             LEFT STICKY SIDEBAR
@@ -62,12 +56,12 @@ export default function AerospaceCatalogSection() {
           <div className={styles.sidebarCard}>
             <div className={styles.sidebarHeader}>
               <span className={styles.sidebarEyebrow}>Product Index</span>
-              <h3 className={styles.sidebarTitle}>Aerospace Systems</h3>
+              <h3 className={styles.sidebarTitle}>Defence Systems</h3>
             </div>
 
-            <nav aria-label="Aerospace Platforms Navigation">
+            <nav aria-label="Defence Categories Navigation">
               <ul className={styles.navList}>
-                {aerospaceCategories.map((cat: AerospaceCategory) => {
+                {defenceCategories.map((cat: DefenceCategory) => {
                   const isActive = activeId === cat.id;
 
                   return (
@@ -102,17 +96,15 @@ export default function AerospaceCatalogSection() {
           >
             <div className={styles.categoryHeader}>
               <span className={styles.categoryEyebrow}>
-                {activeCategory.number} / AEROSPACE DIVISION
+                {activeCategory.number} / DEFENCE DIVISION
               </span>
               <h2 className={styles.categoryTitle}>{activeCategory.name}</h2>
               {activeCategory.tagline && (
-                <p className={styles.categoryTagline}>
-                  {activeCategory.tagline}
-                </p>
+                <p className={styles.categoryTagline}>{activeCategory.tagline}</p>
               )}
             </div>
 
-            {/* Product Cards Grid */}
+            {/* Products Grid */}
             {activeCategory.products && activeCategory.products.length > 0 ? (
               <div className={styles.productsGrid}>
                 {activeCategory.products.map((product: ProductCardItem) => (
@@ -144,16 +136,16 @@ export default function AerospaceCatalogSection() {
                 ))}
               </div>
             ) : (
-              /* Fallback / empty state for unpopulated categories */
               <div className={styles.emptyStateCard}>
                 <h3 className={styles.emptyStateTitle}>
                   Platform Dossiers Under Classification
                 </h3>
                 <p className={styles.emptyStateDesc}>
-                  Specifications and technical documentation for this division are available upon strategic institutional inquiry.
+                  Specifications and technical documentation for this division are
+                  available upon strategic institutional inquiry.
                 </p>
                 <Link href="/contact" className={styles.viewDetailsButton}>
-                  Inquire With Aerospace Division
+                  Inquire With Defence Division
                 </Link>
               </div>
             )}

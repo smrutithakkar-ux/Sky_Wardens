@@ -66,6 +66,7 @@
 /* Native smooth scroll is disabled; Lenis handles smooth scrolling. */
 html {
   scroll-behavior: auto;
+  overflow-x: clip;
 }
 
 body {
@@ -78,6 +79,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 
