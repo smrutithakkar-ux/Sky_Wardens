@@ -3,10 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { careerPositions, CareerPosition } from "../data";
+import JobApplicationModal from "../components/JobApplicationModal";
 import styles from "./CareersPositionsSection.module.css";
 
 export default function CareersPositionsSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [selectedPosition, setSelectedPosition] =
+    useState<CareerPosition | null>(null);
 
   const toggleExpand = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -169,11 +172,10 @@ export default function CareersPositionsSection() {
                     </svg>
                   </button>
 
-                  <a
-                    href={`mailto:careers@skywardens.com?subject=Application:%20${encodeURIComponent(
-                      pos.title
-                    )}`}
+                  <button
+                    type="button"
                     className={styles.applyButton}
+                    onClick={() => setSelectedPosition(pos)}
                   >
                     <span>Apply for Role</span>
                     <svg
@@ -191,7 +193,7 @@ export default function CareersPositionsSection() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </article>
             );
@@ -210,7 +212,25 @@ export default function CareersPositionsSection() {
             </p>
           </div>
 
-          <Link href="/contact" className={styles.generalApplyButton}>
+          <button
+            type="button"
+            className={styles.generalApplyButton}
+            onClick={() =>
+              setSelectedPosition({
+                id: "speculative-fellowship",
+                title: "Speculative Defense Fellowship & Research",
+                department: "All Engineering Disciplines",
+                location: "India (On-site / Hybrid)",
+                type: "Full-Time / Fellowship",
+                experience: "All Experience Levels",
+                description:
+                  "Speculative dossier submission for researchers and engineers across aerospace, telemetry, advanced metallurgy, and tactical autonomy.",
+                responsibilities: [],
+                requirements: [],
+                tags: ["Research", "Aerodynamics", "Avionics", "Advanced Materials"],
+              })
+            }
+          >
             <span>Submit Credentials</span>
             <svg
               width="12"
@@ -227,9 +247,15 @@ export default function CareersPositionsSection() {
                 strokeLinejoin="round"
               />
             </svg>
-          </Link>
+          </button>
         </div>
       </div>
+
+      {/* Interactive Next Process & Application Dossier Modal */}
+      <JobApplicationModal
+        position={selectedPosition}
+        onClose={() => setSelectedPosition(null)}
+      />
     </section>
   );
 }
